@@ -2,372 +2,456 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080d18">
-<title>Scar Invest | Your Money Journey</title>
+<title>Scar Invest | Virtual Finance</title>
 
 <style>
 :root {
-  --bg: #080d18;
-  --card: #111a2b;
-  --card2: #172238;
-  --green: #38f5a5;
-  --text: #f4f7ff;
-  --muted: #8c9bb5;
-  --border: rgba(255,255,255,.09);
-  --red: #ff6d80;
+  --bg:#080d18;
+  --panel:#111b2d;
+  --panel2:#17243a;
+  --green:#35efa4;
+  --text:#f5f7ff;
+  --muted:#91a0b9;
+  --border:#29364c;
+  --red:#ff7085;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body {
-  background:
-    radial-gradient(ellipse at top right, #12372e 0, transparent 38%),
-    var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  min-height:100vh;
 }
 
-button, input, select {
-  font: inherit;
+button,input,select {
+  font:inherit;
 }
 
 button {
-  cursor: pointer;
-  border: none;
+  cursor:pointer;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 5%;
-  border-bottom: 1px solid var(--border);
+button:disabled {
+  opacity:.5;
+  cursor:not-allowed;
 }
 
-.logo {
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: 1px;
+a {
+  color:inherit;
 }
 
-.logo span {
-  color: var(--green);
-}
-
-.badge {
-  font-size: 11px;
-  color: var(--green);
-  border: 1px solid #285c4a;
-  background: #10281f;
-  padding: 8px 11px;
-  border-radius: 20px;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 28px 18px 60px;
-}
-
-.welcome {
-  margin-bottom: 24px;
-}
-
-.welcome h1 {
-  font-size: clamp(25px, 5vw, 36px);
-  margin-bottom: 9px;
-}
-
-.welcome p, .muted {
-  color: var(--muted);
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.notice {
-  background: #17243a;
-  border: 1px solid #34425b;
-  padding: 13px 15px;
-  border-radius: 12px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #c6d4ea;
-  margin-bottom: 22px;
-}
-
-.notice strong {
-  color: var(--green);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.card {
-  background: linear-gradient(145deg, var(--card2), var(--card));
-  border: 1px solid var(--border);
-  border-radius: 19px;
-  padding: 21px;
-  min-width: 0;
-  animation: rise .5s ease both;
-}
-
-@keyframes rise {
-  from {opacity:0; transform:translateY(10px)}
-  to {opacity:1; transform:translateY(0)}
-}
-
-.full {
-  grid-column: 1 / -1;
-}
-
-.label {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.money {
-  font-size: clamp(25px, 5vw, 36px);
-  font-weight: 800;
-  overflow-wrap: anywhere;
+.hidden {
+  display:none!important;
 }
 
 .green {
-  color: var(--green);
+  color:var(--green);
 }
 
-.small {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 10px;
-  line-height: 1.5;
+.muted {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 21px;
+.brand {
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-.btn {
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 13px;
-  transition: .2s;
+.brand span {
+  color:var(--green);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+.pill {
+  font-size:10px;
+  color:var(--green);
+  border:1px solid #285e4a;
+  padding:7px 10px;
+  border-radius:20px;
+  background:#10261e;
+}
+
+button,.btn {
+  border:0;
+  border-radius:10px;
+  padding:12px 15px;
+  font-size:13px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+button:hover,.btn:hover {
+  transform:translateY(-1px);
 }
 
 .primary {
-  background: var(--green);
-  color: #06150e;
+  background:var(--green);
+  color:#07150f;
 }
 
 .secondary {
-  background: #26334a;
-  color: white;
-  border: 1px solid var(--border);
-}
-
-.whatsapp {
-  background: #20c86b;
-  color: #062014;
+  background:#26344c;
+  color:white;
+  border:1px solid var(--border);
 }
 
 .danger {
-  background: #38202c;
-  color: #ffb5c1;
+  background:#3c202d;
+  color:#ffb7c2;
 }
 
-.section-title {
-  font-size: 19px;
-  margin-bottom: 17px;
+.whatsapp {
+  background:#22c96c;
+  color:#052012;
+  text-decoration:none;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-.task {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.025);
-  padding: 16px;
-  border-radius: 14px;
-  margin-top: 12px;
+input,select {
+  width:100%;
+  background:#0a1120;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:13px;
+  outline:none;
+  margin-top:7px;
 }
 
-.task h3 {
-  font-size: 15px;
-  margin-bottom: 8px;
+input:focus,select:focus {
+  border-color:var(--green);
 }
 
-.task p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 13px;
-}
-
-.task .btn {
-  width: 100%;
-}
-
-input, select {
-  width: 100%;
-  padding: 13px;
-  background: #0a1120;
-  color: white;
-  border: 1px solid #34425b;
-  border-radius: 10px;
-  outline: none;
-  margin-top: 7px;
-}
-
-input:focus, select:focus {
-  border-color: var(--green);
+label {
+  display:block;
+  font-size:12px;
+  color:#c0cce0;
 }
 
 .field {
-  margin-bottom: 14px;
+  margin-bottom:15px;
 }
 
-.field label {
-  font-size: 12px;
-  color: #b8c5d9;
+.auth-page {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px 16px;
+  background:
+    radial-gradient(ellipse at top right,#124332 0,transparent 45%),
+    radial-gradient(ellipse at bottom left,#142b4b 0,transparent 45%),
+    var(--bg);
 }
 
-.form-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.auth-box {
+  width:100%;
+  max-width:430px;
+  padding:30px 25px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:rgba(17,27,45,.96);
+  box-shadow:0 25px 80px #0005;
+  animation:appear .4s ease;
 }
 
-.form-actions button {
-  flex: 1;
+@keyframes appear {
+  from {opacity:0;transform:translateY(12px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.auth-box .brand {
+  margin-bottom:30px;
+}
+
+.auth-box h1 {
+  font-size:27px;
+  margin-bottom:9px;
+}
+
+.auth-box>p {
+  margin-bottom:25px;
+}
+
+.auth-submit {
+  width:100%;
+  margin-top:5px;
+}
+
+.auth-switch {
+  margin-top:20px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.text-button {
+  background:none;
+  color:var(--green);
+  padding:4px;
+}
+
+.auth-notice {
+  margin-top:20px;
+  font-size:11px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.error {
+  color:#ff94a5;
+  font-size:12px;
+  margin:12px 0;
+  line-height:1.5;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:20px 5%;
+  border-bottom:1px solid var(--border);
+  background:#0b1220;
+}
+
+.header-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.container {
+  max-width:1100px;
+  margin:auto;
+  padding:28px 17px 60px;
+}
+
+.welcome {
+  margin-bottom:22px;
+}
+
+.welcome h1 {
+  font-size:clamp(24px,5vw,34px);
+  margin-bottom:9px;
+}
+
+.notice {
+  border:1px solid #34445c;
+  background:#15233a;
+  padding:13px 15px;
+  border-radius:12px;
+  font-size:12px;
+  line-height:1.7;
+  color:#cbd8ec;
+  margin-bottom:20px;
+}
+
+.notice strong {
+  color:var(--green);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.card {
+  min-width:0;
+  padding:21px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+}
+
+.full {
+  grid-column:1/-1;
+}
+
+.card h2 {
+  font-size:18px;
+  margin-bottom:16px;
+}
+
+.label {
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:12px;
+}
+
+.balance {
+  font-size:clamp(25px,5vw,35px);
+  font-weight:800;
+  overflow-wrap:anywhere;
+}
+
+.small {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6;
+  margin-top:9px;
+}
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:19px;
+}
+
+.actions button,.actions a {
+  flex:1;
+}
+
+.task,.plan {
+  border:1px solid var(--border);
+  background:#0e1728;
+  padding:17px;
+  border-radius:13px;
+  margin-top:12px;
+}
+
+.task h3,.plan h3 {
+  font-size:15px;
+  margin-bottom:9px;
+}
+
+.task p,.plan p {
+  font-size:12px;
+  line-height:1.7;
+  color:var(--muted);
+  margin-bottom:13px;
+}
+
+.task button,.plan button {
+  width:100%;
+}
+
+.plan-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
 }
 
 .progress {
-  height: 8px;
-  background: #29364a;
-  border-radius: 20px;
-  margin: 15px 0 8px;
-  overflow: hidden;
+  height:8px;
+  background:#29364c;
+  border-radius:20px;
+  overflow:hidden;
+  margin:15px 0 8px;
 }
 
 .progress div {
-  height: 100%;
-  background: var(--green);
-  width: 0;
-  transition: width .5s;
-}
-
-.history {
-  margin-top: 12px;
+  height:100%;
+  width:0;
+  background:var(--green);
+  transition:width .4s;
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 12px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
 }
 
 .row:last-child {
-  border-bottom: none;
-}
-
-.row .description {
-  overflow-wrap: anywhere;
+  border:0;
 }
 
 .row .date {
-  color: var(--muted);
-  margin-top: 5px;
+  color:var(--muted);
+  margin-top:5px;
 }
 
-.row .amount {
-  white-space: nowrap;
-  font-weight: 700;
-}
-
-.empty {
-  color: var(--muted);
-  font-size: 13px;
-  padding: 15px 0;
-  line-height: 1.6;
+.amount {
+  white-space:nowrap;
+  font-weight:bold;
 }
 
 .ad {
-  background: linear-gradient(130deg, #103a30, #17263b);
-  border: 1px solid #2b654f;
+  background:linear-gradient(130deg,#103c30,#16253e);
+  border-color:#285e4a;
 }
 
 .ad h2 {
-  font-size: 23px;
-  margin-bottom: 12px;
+  font-size:23px;
 }
 
 .ad p {
-  color: #c5d7d0;
-  line-height: 1.7;
-  font-size: 13px;
+  color:#c7d8d1;
+  line-height:1.7;
+  font-size:13px;
 }
 
 footer {
-  text-align: center;
-  padding: 25px 12px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.8;
+  padding:25px 12px;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
 }
 
 .toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--green);
-  color: #06150e;
-  padding: 13px 18px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: bold;
-  box-shadow: 0 8px 30px #0007;
-  display: none;
-  z-index: 10;
-  max-width: 90%;
+  display:none;
+  position:fixed;
+  z-index:10;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:90%;
+  padding:13px 18px;
+  background:var(--green);
+  color:#07150f;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:bold;
 }
 
-@media (max-width: 650px) {
+@media(max-width:650px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .full {
-    grid-column: auto;
+    grid-column:auto;
+  }
+
+  .plan-grid {
+    grid-template-columns:1fr;
   }
 
   header {
-    padding: 18px;
+    padding:17px;
   }
 
   .container {
-    padding: 23px 14px 40px;
+    padding:22px 13px 40px;
   }
 
   .card {
-    padding: 18px;
+    padding:17px;
+  }
+
+  .auth-box {
+    padding:25px 20px;
   }
 }
 </style>
@@ -375,305 +459,411 @@ footer {
 
 <body>
 
+<!-- REGISTRATION AND LOGIN -->
+
+<section id="authPage" class="auth-page">
+  <div class="auth-box">
+
+    <div class="brand">SCAR <span>INVEST.</span></div>
+
+    <div id="registerForm">
+      <h1>Create your account</h1>
+      <p class="muted">Start your virtual financial journey today.</p>
+
+      <form id="register">
+        <div class="field">
+          <label for="regName">Full name</label>
+          <input id="regName" maxlength="60"
+                 autocomplete="name" required
+                 placeholder="Enter your name">
+        </div>
+
+        <div class="field">
+          <label for="regEmail">Email address</label>
+          <input id="regEmail" type="email"
+                 maxlength="120" autocomplete="email"
+                 required placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="regPassword">Create password</label>
+          <input id="regPassword" type="password"
+                 minlength="8" maxlength="100"
+                 autocomplete="new-password"
+                 required placeholder="At least 8 characters">
+        </div>
+
+        <div class="field">
+          <label for="regConfirm">Confirm password</label>
+          <input id="regConfirm" type="password"
+                 minlength="8" maxlength="100"
+                 autocomplete="new-password"
+                 required placeholder="Enter password again">
+        </div>
+
+        <p id="regError" class="error"></p>
+
+        <button class="primary auth-submit" type="submit">
+          Create demo account →
+        </button>
+      </form>
+
+      <div class="auth-switch">
+        Already registered?
+        <button class="text-button" onclick="showLogin()">
+          Sign in
+        </button>
+      </div>
+    </div>
+
+    <div id="loginForm" class="hidden">
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to your virtual dashboard.</p>
+
+      <form id="login">
+        <div class="field">
+          <label for="loginEmail">Email address</label>
+          <input id="loginEmail" type="email"
+                 autocomplete="username" required
+                 placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password"
+                 autocomplete="current-password" required
+                 placeholder="Enter your password">
+        </div>
+
+        <p id="loginError" class="error"></p>
+
+        <button class="primary auth-submit" type="submit">
+          Sign in →
+        </button>
+      </form>
+
+      <div class="auth-switch">
+        New to Scar Invest?
+        <button class="text-button" onclick="showRegister()">
+          Create account
+        </button>
+      </div>
+    </div>
+
+    <p class="auth-notice">
+      DEMO ONLY: This browser-based example is not a secure authentication
+      service. Do not use a real password or sensitive personal information.
+      Virtual balances are not cash or investment profits.
+    </p>
+
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+
+<section id="appPage" class="hidden">
+
 <header>
-  <div class="logo">SCAR <span>INVEST.</span></div>
-  <div class="badge">● DEMO MODE</div>
+  <div class="brand">SCAR <span>INVEST.</span></div>
+
+  <div class="header-right">
+    <span class="pill">● DEMO</span>
+    <button class="secondary" onclick="logout()">Log out</button>
+  </div>
 </header>
 
 <main class="container">
 
   <div class="welcome">
-    <h1>Your money journey. <span class="green">Your future.</span></h1>
-    <p>Practise money management, complete daily tasks, and track your savings.</p>
+    <h1>Welcome, <span class="green" id="userName">Investor</span> 👋</h1>
+    <p class="muted">Your virtual wallet and personal savings dashboard.</p>
   </div>
 
   <div class="notice">
-    <strong>Important:</strong> This is a practice simulator.
-    Virtual balances and rewards have no cash value. Real savings are
-    recorded separately and are not held or transferred by this website.
+    <strong>Virtual finance simulator.</strong>
+    Every deposit, reward, plan and withdrawal in this dashboard is simulated.
+    Nothing here transfers, invests, or withdraws real money.
   </div>
 
   <div class="grid">
 
-    <!-- VIRTUAL ACCOUNT -->
-
     <section class="card">
-      <div class="label">VIRTUAL INVESTMENT BALANCE</div>
-      <div class="money green" id="virtualBalance">₦0.00</div>
-      <div class="small">Practice money only · Not withdrawable as cash</div>
+      <div class="label">VIRTUAL WALLET BALANCE</div>
+      <div class="balance green" id="virtualBalance">₦0.00</div>
+      <p class="small">Practice money only. No cash value.</p>
 
       <div class="actions">
-        <button class="btn primary" onclick="showPanel('depositPanel')">
-          + Add Virtual Money
+        <button class="primary" onclick="openPanel('depositPanel')">
+          + Add demo money
         </button>
-        <button class="btn secondary" onclick="showPanel('withdrawPanel')">
+        <button class="secondary" onclick="openPanel('withdrawPanel')">
           Withdraw
         </button>
       </div>
     </section>
 
-    <!-- REAL SAVINGS -->
-
     <section class="card">
-      <div class="label">MY RECORDED REAL SAVINGS</div>
-      <div class="money" id="realBalance">₦0.00</div>
-      <div class="small">Your personal records of money saved outside this website.</div>
+      <div class="label">REAL SAVINGS RECORD</div>
+      <div class="balance" id="realBalance">₦0.00</div>
+      <p class="small">A record of money saved outside this website.</p>
 
       <div class="actions">
-        <button class="btn primary" onclick="showPanel('savingsPanel')">
-          + Record Savings
+        <button class="primary" onclick="openPanel('savingsPanel')">
+          + Record savings
         </button>
-        <button class="btn secondary" onclick="showPanel('realWithdrawPanel')">
-          Record Withdrawal
+        <button class="secondary" onclick="openPanel('realWithdrawPanel')">
+          Record withdrawal
         </button>
       </div>
     </section>
 
-    <!-- VIRTUAL DEPOSIT PANEL -->
-
-    <section class="card full" id="depositPanel" hidden>
-      <h2 class="section-title">Add virtual money</h2>
-
-      <p class="muted">
-        Add practice funds to test the simulator. This does not transfer money.
-      </p>
+    <section class="card full hidden" id="depositPanel">
+      <h2>Add virtual money</h2>
+      <p class="muted">This does not require a bank transfer.</p>
 
       <div class="field">
-        <label>Virtual amount (₦)</label>
-        <input id="depositAmount" type="number" min="1" placeholder="e.g. 10000">
+        <label for="depositAmount">Amount (₦)</label>
+        <input id="depositAmount" type="number"
+               min="1" step="1" placeholder="e.g. 10000">
       </div>
 
-      <div class="form-actions">
-        <button class="btn primary" onclick="virtualDeposit()">Add to demo</button>
-        <button class="btn secondary" onclick="hidePanels()">Cancel</button>
+      <div class="actions">
+        <button class="primary" onclick="deposit()">Add to wallet</button>
+        <button class="secondary" onclick="closePanels()">Cancel</button>
       </div>
 
-      <div style="margin-top:22px;border-top:1px solid var(--border);padding-top:18px">
-        <h3 style="margin-bottom:9px">Want a website for your business?</h3>
+      <div style="margin-top:22px">
         <p class="muted">
-          I build modern websites for businesses, including restaurants,
-          hotels, real estate companies, and more. Contact me on WhatsApp
-          to discuss your project.
+          Want a professional website for your business?
+          Contact me on WhatsApp.
         </p>
-
         <div class="actions">
-          <a class="btn whatsapp"
-             href="https://wa.me/2348104959223?text=Hello%2C%20I%20am%20interested%20in%20getting%20a%20website%20for%20my%20business."
-             target="_blank"
+          <a class="btn whatsapp" target="_blank"
              rel="noopener noreferrer"
-             style="text-decoration:none">
-             Chat with me on WhatsApp
+             href="https://wa.me/2348104959223?text=Hello%2C%20I%20want%20a%20website%20for%20my%20business.">
+            💬 Get a website
           </a>
         </div>
-
-        <p class="small">WhatsApp: 08104959223</p>
       </div>
     </section>
 
-    <!-- VIRTUAL WITHDRAWAL -->
-
-    <section class="card full" id="withdrawPanel" hidden>
-      <h2 class="section-title">Virtual withdrawal</h2>
-
-      <p class="muted">
-        This only reduces your practice balance. It does not send money
-        to a bank account or mobile wallet.
-      </p>
+    <section class="card full hidden" id="withdrawPanel">
+      <h2>Virtual withdrawal</h2>
+      <p class="muted">This only reduces your virtual wallet balance.</p>
 
       <div class="field">
-        <label>Amount (₦)</label>
-        <input id="withdrawAmount" type="number" min="1" placeholder="Enter amount">
+        <label for="withdrawAmount">Amount (₦)</label>
+        <input id="withdrawAmount" type="number"
+               min="1" step="1" placeholder="Enter amount">
       </div>
 
-      <div class="form-actions">
-        <button class="btn primary" onclick="virtualWithdraw()">Confirm demo withdrawal</button>
-        <button class="btn secondary" onclick="hidePanels()">Cancel</button>
+      <div class="actions">
+        <button class="primary" onclick="withdraw()">Confirm withdrawal</button>
+        <button class="secondary" onclick="closePanels()">Cancel</button>
       </div>
     </section>
 
-    <!-- RECORD REAL SAVINGS -->
-
-    <section class="card full" id="savingsPanel" hidden>
-      <h2 class="section-title">Record real savings</h2>
-
+    <section class="card full hidden" id="savingsPanel">
+      <h2>Record real savings</h2>
       <p class="muted">
-        Record money you have actually put aside elsewhere.
-        Save the money in your own bank or savings account first.
+        Only record money you have actually saved in an external account.
       </p>
 
       <div class="field">
-        <label>Amount actually saved (₦)</label>
-        <input id="savingsAmount" type="number" min="1" placeholder="e.g. 5000">
+        <label for="savingsAmount">Amount saved (₦)</label>
+        <input id="savingsAmount" type="number"
+               min="1" step="1" placeholder="Enter amount">
       </div>
 
       <div class="field">
-        <label>Where did you save it?</label>
+        <label for="savingsNote">Note (optional)</label>
         <input id="savingsNote" maxlength="100"
-               placeholder="e.g. My bank savings account">
+               placeholder="e.g. Personal savings">
       </div>
 
-      <div class="form-actions">
-        <button class="btn primary" onclick="recordSavings()">Record savings</button>
-        <button class="btn secondary" onclick="hidePanels()">Cancel</button>
+      <div class="actions">
+        <button class="primary" onclick="recordSavings()">Save record</button>
+        <button class="secondary" onclick="closePanels()">Cancel</button>
       </div>
     </section>
 
-    <!-- RECORD REAL WITHDRAWAL -->
-
-    <section class="card full" id="realWithdrawPanel" hidden>
-      <h2 class="section-title">Record a real savings withdrawal</h2>
-
+    <section class="card full hidden" id="realWithdrawPanel">
+      <h2>Record a real savings withdrawal</h2>
       <p class="muted">
-        Use this only after you actually withdraw money from your external
-        savings. This form does not perform the bank transaction.
+        This updates your records only. Make the actual withdrawal through
+        your own bank or savings provider.
       </p>
 
       <div class="field">
-        <label>Amount withdrawn (₦)</label>
-        <input id="realWithdrawAmount" type="number" min="1" placeholder="Enter amount">
+        <label for="realWithdrawAmount">Amount (₦)</label>
+        <input id="realWithdrawAmount" type="number"
+               min="1" step="1" placeholder="Enter amount">
       </div>
 
-      <div class="form-actions">
-        <button class="btn primary" onclick="recordRealWithdrawal()">Record withdrawal</button>
-        <button class="btn secondary" onclick="hidePanels()">Cancel</button>
+      <div class="actions">
+        <button class="primary" onclick="recordRealWithdrawal()">Record withdrawal</button>
+        <button class="secondary" onclick="closePanels()">Cancel</button>
       </div>
     </section>
-
-    <!-- DAILY TASKS -->
+        <!-- DAILY TASKS -->
 
     <section class="card full">
-      <h2 class="section-title">⚡ Daily practice tasks</h2>
+      <h2>⚡ Daily tasks</h2>
       <p class="muted">
-        Complete a task to receive a virtual reward. Rewards are simulated
-        and do not represent actual investment returns.
+        Learn financial skills and receive fixed virtual practice rewards.
+        These are not investment returns.
       </p>
 
       <div class="task">
-        <h3>📚 Money learning challenge</h3>
+        <h3>📚 Money knowledge</h3>
         <p>
-          Today's lesson: learn the difference between revenue, profit,
-          expenses, and savings. Understanding these helps you make better
-          financial decisions.
+          Learn the difference between revenue, expenses, profit and savings.
         </p>
-        <button class="btn primary" id="taskButton" onclick="claimTask()">
-          Complete task · Earn ₦100 virtual
+        <button class="primary" id="taskButton" onclick="claimTask()">
+          Complete task · ₦100 virtual
         </button>
       </div>
 
       <div class="task">
-        <h3>🎯 Savings discipline challenge</h3>
+        <h3>🎯 Savings discipline</h3>
         <p>
-          Review your savings goal and decide how much you can reasonably
-          set aside next. This task awards virtual practice points.
+          Review your savings goal and decide on a realistic amount to save.
         </p>
-        <button class="btn secondary" id="disciplineButton"
+        <button class="secondary" id="disciplineButton"
                 onclick="claimDiscipline()">
-          Complete challenge · Earn ₦50 virtual
+          Complete challenge · ₦50 virtual
         </button>
+      </div>
+    </section>
+
+    <!-- SIMULATED PLANS -->
+
+    <section class="card full">
+      <h2>📈 Virtual investment plans</h2>
+      <p class="muted">
+        Choose a simulation to see how different hypothetical returns affect
+        your virtual balance. No real investments are made.
+      </p>
+
+      <div class="plan-grid">
+        <div class="plan">
+          <h3>🌱 Starter</h3>
+          <p>Illustrative return: 2% over the simulated period.</p>
+          <button class="secondary" onclick="simulatePlan(2)">
+            Simulate 2%
+          </button>
+        </div>
+
+        <div class="plan">
+          <h3>🚀 Growth</h3>
+          <p>Illustrative return: 5% over the simulated period.</p>
+          <button class="secondary" onclick="simulatePlan(5)">
+            Simulate 5%
+          </button>
+        </div>
+
+        <div class="plan">
+          <h3>💎 Advanced</h3>
+          <p>Illustrative return: 10% over the simulated period.</p>
+          <button class="secondary" onclick="simulatePlan(10)">
+            Simulate 10%
+          </button>
+        </div>
       </div>
 
       <p class="small">
-        Tasks reset daily. The rewards are fixed practice amounts, not
-        percentage-based investment profits.
+        These percentages are arbitrary teaching examples, not realistic
+        daily returns, forecasts, or promises. Results are hypothetical.
       </p>
     </section>
 
-    <!-- SAVINGS GOAL -->
+    <!-- GOAL -->
 
     <section class="card">
-      <h2 class="section-title">🎯 Savings goal</h2>
-
+      <h2>🎯 Savings goal</h2>
       <div class="label">YOUR TARGET</div>
-      <div class="money" id="goalDisplay">₦100,000</div>
+      <div class="balance" id="goalDisplay">₦100,000</div>
 
       <div class="progress">
         <div id="goalProgress"></div>
       </div>
 
-      <div class="small" id="goalMessage">Start tracking your progress.</div>
+      <p class="small" id="goalMessage"></p>
 
-      <div class="field" style="margin-top:18px">
-        <label>Set a new goal (₦)</label>
-        <input id="goalInput" type="number" min="1" placeholder="e.g. 100000">
+      <div class="field" style="margin-top:17px">
+        <label for="goalInput">New goal (₦)</label>
+        <input id="goalInput" type="number" min="1" step="1"
+               placeholder="e.g. 100000">
       </div>
 
-      <button class="btn primary" style="width:100%"
+      <button class="primary" style="width:100%"
               onclick="setGoal()">Update goal</button>
     </section>
 
-    <!-- SUMMARY -->
+    <!-- REWARDS -->
 
     <section class="card">
-      <h2 class="section-title">📊 Your overview</h2>
+      <h2>🏆 Your progress</h2>
+      <div class="label">VIRTUAL REWARDS EARNED</div>
+      <div class="balance green" id="rewardsDisplay">₦0.00</div>
 
-      <div class="label">TOTAL VIRTUAL REWARDS EARNED</div>
-      <div class="money green" id="rewardsDisplay">₦0.00</div>
-
-      <div class="small">Total rewards claimed in the simulator.</div>
+      <p class="small">Rewards earned from practice tasks.</p>
 
       <div style="margin-top:22px">
-        <div class="label">VIRTUAL TASKS COMPLETED</div>
-        <div class="money" id="tasksDisplay">0</div>
-      </div>
-
-      <div class="small">
-        Virtual balances and rewards are separate from your real savings.
+        <div class="label">COMPLETED TASKS</div>
+        <div class="balance" id="tasksDisplay">0</div>
       </div>
     </section>
 
-    <!-- TRANSACTION HISTORY -->
+    <!-- HISTORY -->
 
     <section class="card full">
-      <h2 class="section-title">📜 Recent activity</h2>
-      <div id="history" class="history">
-        <p class="empty">Your activity will appear here.</p>
+      <h2>📜 Transaction history</h2>
+      <div id="history">
+        <p class="muted">Your activity will appear here.</p>
       </div>
-
-      <button class="btn secondary" style="margin-top:15px"
-              onclick="exportData()">Export my records</button>
-    </section>
-
-    <!-- RESET -->
-
-    <section class="card full">
-      <h2 class="section-title">⚙️ Account settings</h2>
-      <p class="muted">
-        Your data is stored in this browser on this device.
-        Clearing browser storage or changing devices may affect your records.
-        Export your records regularly.
-      </p>
 
       <div class="actions">
-        <button class="btn danger" onclick="resetDemo()">
-          Reset demo data
+        <button class="secondary" onclick="exportData()">
+          Export my records
         </button>
       </div>
     </section>
 
-    <!-- ADVERTISING -->
+    <!-- WHATSAPP ADVERTISEMENT -->
 
     <section class="card full ad">
       <h2>Need a website for your business? 🚀</h2>
 
       <p>
-        Make your business stand out online with a modern, mobile-friendly
-        website. I build websites for real estate, restaurants, hotels,
-        barbershops, and other businesses.
+        I create modern, mobile-friendly websites for restaurants, hotels,
+        barbershops, real estate companies and other businesses.
+        Let's bring your business online.
       </p>
 
       <div class="actions">
         <a class="btn whatsapp"
-           href="https://wa.me/2348104959223?text=Hello%2C%20I%20saw%20your%20Scar%20Invest%20website%20and%20I%20want%20to%20discuss%20a%20website%20for%20my%20business."
-           target="_blank"
-           rel="noopener noreferrer"
-           style="text-decoration:none">
-           💬 Get a website — WhatsApp me
+           href="https://wa.me/2348104959223?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20discuss%20a%20website%20for%20my%20business."
+           target="_blank" rel="noopener noreferrer">
+          💬 Contact me on WhatsApp
         </a>
       </div>
 
-      <p style="margin-top:12px">
-        Contact: 08104959223
+      <p style="margin-top:12px">WhatsApp: 08104959223</p>
+    </section>
+
+    <section class="card full">
+      <h2>⚙️ Settings</h2>
+      <p class="muted">
+        Demo account information is stored in this browser. It is not
+        securely synced across devices. Export your records for backup.
+        Clearing browser data may erase your information.
       </p>
+
+      <div class="actions">
+        <button class="secondary" onclick="logout()">Log out</button>
+        <button class="danger" onclick="resetDemo()">Reset demo data</button>
+      </div>
     </section>
 
   </div>
@@ -681,60 +871,200 @@ footer {
 
 <footer>
   SCAR INVEST © 2026<br>
-  Educational simulator and personal savings tracker.<br>
-  No real investment, deposits, bank transfers, or cash withdrawals
-  are processed by this website.
+  Educational virtual finance simulator.<br>
+  No real money transfers, investments, or cash withdrawals are processed.
 </footer>
 
-<div class="toast" id="toast"></div>
+</section>
+
+<div id="toast" class="toast"></div>
 
 <script>
-const KEY = "scarInvestDemoV1";
+const ACCOUNT_KEY = "scarInvestDemoAccountV2";
+const DATA_PREFIX = "scarInvestDemoDataV2_";
 
-const initialState = {
+let account = null;
+let state = null;
+
+const freshState = () => ({
   virtualBalance: 0,
   realSavings: 0,
   totalRewards: 0,
-  goal: 100000,
   tasks: 0,
+  goal: 100000,
   lastTask: "",
   lastDiscipline: "",
   history: []
-};
+});
 
-let state = loadState();
-
-function loadState() {
+function readJSON(key) {
   try {
-    const saved = localStorage.getItem(KEY);
-    if (!saved) return {...initialState};
-
-    const data = JSON.parse(saved);
-
-    return {
-      ...initialState,
-      ...data,
-      history: Array.isArray(data.history) ? data.history : []
-    };
-  } catch (e) {
-    return {...initialState};
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch {
+    return null;
   }
 }
 
-function saveState() {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(state));
-  } catch (e) {
-    notify("Unable to save. Export your records before leaving.");
+function showRegister() {
+  document.getElementById("registerForm").classList.remove("hidden");
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("regError").textContent = "";
+  document.getElementById("loginError").textContent = "";
+}
+
+function showLogin() {
+  document.getElementById("loginForm").classList.remove("hidden");
+  document.getElementById("registerForm").classList.add("hidden");
+  document.getElementById("regError").textContent = "";
+  document.getElementById("loginError").textContent = "";
+}
+
+function normalizeEmail(email) {
+  return email.trim().toLowerCase();
+}
+
+function safeAmount(value) {
+  const amount = Number(value);
+  return Number.isSafeInteger(amount) && amount > 0
+    ? amount : null;
+}
+
+function registerAccount(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("regName").value.trim();
+  const email = normalizeEmail(document.getElementById("regEmail").value);
+  const password = document.getElementById("regPassword").value;
+  const confirm = document.getElementById("regConfirm").value;
+  const error = document.getElementById("regError");
+
+  error.textContent = "";
+
+  if (name.length < 2) {
+    error.textContent = "Please enter your name.";
+    return;
   }
+
+  if (password.length < 8) {
+    error.textContent = "Use at least 8 characters for your password.";
+    return;
+  }
+
+  if (password !== confirm) {
+    error.textContent = "Your passwords do not match.";
+    return;
+  }
+
+  if (localStorage.getItem(ACCOUNT_KEY)) {
+    const existing = readJSON(ACCOUNT_KEY);
+
+    if (existing && existing.email === email) {
+      error.textContent = "An account already exists. Please sign in.";
+      showLogin();
+      document.getElementById("loginEmail").value = email;
+      return;
+    }
+
+    error.textContent =
+      "This demo supports one local account. A secure multi-user system needs a backend.";
+    return;
+  }
+
+  /*
+    Demo-only password storage.
+    Do not use a real password here.
+    Production authentication must use a secure backend.
+  */
+  account = {name, email, password};
+  localStorage.setItem(ACCOUNT_KEY, JSON.stringify(account));
+
+  state = freshState();
+  saveState();
+
+  enterApp();
+  notify("Demo account created!");
+}
+
+function loginAccount(event) {
+  event.preventDefault();
+
+  const email = normalizeEmail(
+    document.getElementById("loginEmail").value
+  );
+
+  const password = document.getElementById("loginPassword").value;
+  const saved = readJSON(ACCOUNT_KEY);
+  const error = document.getElementById("loginError");
+
+  error.textContent = "";
+
+  if (!saved) {
+    error.textContent = "No local account found. Please register first.";
+    showRegister();
+    return;
+  }
+
+  if (saved.email !== email || saved.password !== password) {
+    error.textContent = "Email or password is incorrect.";
+    return;
+  }
+
+  account = saved;
+  state = loadState();
+
+  enterApp();
+}
+
+function enterApp() {
+  document.getElementById("authPage").classList.add("hidden");
+  document.getElementById("appPage").classList.remove("hidden");
+
+  document.getElementById("userName").textContent = account.name;
+
   render();
 }
 
-function money(value) {
-  return "₦" + Number(value || 0).toLocaleString("en-NG", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
+function logout() {
+  account = null;
+  state = null;
+
+  closePanels();
+
+  document.getElementById("appPage").classList.add("hidden");
+  document.getElementById("authPage").classList.remove("hidden");
+
+  document.getElementById("login").reset();
+  showLogin();
+}
+
+function loadState() {
+  if (!account) return freshState();
+
+  const saved = readJSON(DATA_PREFIX + account.email);
+
+  if (!saved) return freshState();
+
+  return {
+    ...freshState(),
+    ...saved,
+    history: Array.isArray(saved.history) ? saved.history : []
+  };
+}
+
+function saveState() {
+  if (!account || !state) return;
+
+  try {
+    localStorage.setItem(
+      DATA_PREFIX + account.email,
+      JSON.stringify(state)
+    );
+  } catch {
+    notify("Could not save data. Export your records.");
+  }
+
+  render();
 }
 
 function addHistory(description, amount, type) {
@@ -746,6 +1076,13 @@ function addHistory(description, amount, type) {
   });
 
   state.history = state.history.slice(0, 100);
+}
+
+function money(amount) {
+  return "₦" + Number(amount || 0).toLocaleString("en-NG", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 }
 
 function notify(message) {
@@ -760,59 +1097,59 @@ function notify(message) {
   }, 2600);
 }
 
-function showPanel(id) {
-  hidePanels();
+function openPanel(id) {
+  closePanels();
 
   const panel = document.getElementById(id);
-  if (panel) {
-    panel.hidden = false;
-    panel.scrollIntoView({behavior: "smooth", block: "center"});
-  }
+  if (!panel) return;
+
+  panel.classList.remove("hidden");
+  panel.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-function hidePanels() {
+function closePanels() {
   [
     "depositPanel",
     "withdrawPanel",
     "savingsPanel",
     "realWithdrawPanel"
   ].forEach(id => {
-    document.getElementById(id).hidden = true;
+    const element = document.getElementById(id);
+    if (element) element.classList.add("hidden");
   });
 }
 
-function readAmount(id) {
-  const value = Number(document.getElementById(id).value);
+function getAmount(id) {
+  const amount = safeAmount(document.getElementById(id).value);
 
-  if (!Number.isSafeInteger(value) || value <= 0) {
-    notify("Enter a valid whole amount in naira.");
-    return null;
+  if (amount === null) {
+    notify("Enter a valid positive whole number.");
   }
 
-  return value;
+  return amount;
 }
 
-function virtualDeposit() {
-  const amount = readAmount("depositAmount");
+function deposit() {
+  const amount = getAmount("depositAmount");
   if (amount === null) return;
 
   if (state.virtualBalance + amount > Number.MAX_SAFE_INTEGER) {
-    notify("That amount is too large.");
+    notify("Amount is too large.");
     return;
   }
 
   state.virtualBalance += amount;
+  addHistory("Virtual deposit", amount, "virtual");
 
-  addHistory("Virtual money added", amount, "virtual");
   document.getElementById("depositAmount").value = "";
 
   saveState();
-  hidePanels();
-  notify("Virtual money added successfully.");
+  closePanels();
+  notify("Virtual money added.");
 }
 
-function virtualWithdraw() {
-  const amount = readAmount("withdrawAmount");
+function withdraw() {
+  const amount = getAmount("withdrawAmount");
   if (amount === null) return;
 
   if (amount > state.virtualBalance) {
@@ -821,21 +1158,21 @@ function virtualWithdraw() {
   }
 
   state.virtualBalance -= amount;
-
   addHistory("Virtual withdrawal", -amount, "virtual");
+
   document.getElementById("withdrawAmount").value = "";
 
   saveState();
-  hidePanels();
+  closePanels();
   notify("Virtual withdrawal recorded.");
 }
 
 function recordSavings() {
-  const amount = readAmount("savingsAmount");
+  const amount = getAmount("savingsAmount");
   if (amount === null) return;
 
   if (state.realSavings + amount > Number.MAX_SAFE_INTEGER) {
-    notify("That amount is too large.");
+    notify("Amount is too large.");
     return;
   }
 
@@ -853,82 +1190,108 @@ function recordSavings() {
   document.getElementById("savingsNote").value = "";
 
   saveState();
-  hidePanels();
+  closePanels();
   notify("Savings record added.");
 }
 
 function recordRealWithdrawal() {
-  const amount = readAmount("realWithdrawAmount");
+  const amount = getAmount("realWithdrawAmount");
   if (amount === null) return;
 
   if (amount > state.realSavings) {
-    notify("That exceeds your recorded savings balance.");
+    notify("Amount exceeds recorded savings.");
     return;
   }
 
   state.realSavings -= amount;
 
   addHistory("Real savings withdrawal recorded", -amount, "real");
+
   document.getElementById("realWithdrawAmount").value = "";
 
   saveState();
-  hidePanels();
-  notify("Withdrawal record updated.");
+  closePanels();
+  notify("Savings record updated.");
 }
 
 function today() {
   const d = new Date();
 
-  return [
-    d.getFullYear(),
-    String(d.getMonth() + 1).padStart(2, "0"),
-    String(d.getDate()).padStart(2, "0")
-  ].join("-");
+  return d.getFullYear() + "-" +
+    String(d.getMonth()+1).padStart(2,"0") + "-" +
+    String(d.getDate()).padStart(2,"0");
 }
 
 function claimTask() {
   if (state.lastTask === today()) {
-    notify("You have already claimed today's task.");
+    notify("Today's task is already claimed.");
     return;
   }
 
-  const reward = 100;
-
-  state.virtualBalance += reward;
-  state.totalRewards += reward;
-  state.tasks += 1;
+  state.virtualBalance += 100;
+  state.totalRewards += 100;
+  state.tasks++;
   state.lastTask = today();
 
-  addHistory("Daily learning task reward (virtual)", reward, "reward");
+  addHistory("Daily learning task reward", 100, "reward");
 
   saveState();
-  notify("You earned ₦100 in virtual practice money!");
+  notify("₦100 virtual reward claimed!");
 }
 
 function claimDiscipline() {
   if (state.lastDiscipline === today()) {
-    notify("You have already completed this challenge today.");
+    notify("Today's challenge is already completed.");
     return;
   }
 
-  const reward = 50;
-
-  state.virtualBalance += reward;
-  state.totalRewards += reward;
-  state.tasks += 1;
+  state.virtualBalance += 50;
+  state.totalRewards += 50;
+  state.tasks++;
   state.lastDiscipline = today();
 
-  addHistory("Savings discipline reward (virtual)", reward, "reward");
+  addHistory("Savings discipline reward", 50, "reward");
 
   saveState();
-  notify("You earned ₦50 in virtual practice money!");
+  notify("₦50 virtual reward claimed!");
+}
+
+function simulatePlan(percent) {
+  if (!confirm(
+    "Simulate a hypothetical " + percent +
+    "% return on your virtual wallet balance? This is not a real investment."
+  )) return;
+
+  const profit = Math.floor(state.virtualBalance * percent / 100);
+
+  if (profit <= 0) {
+    notify("Add virtual practice money first.");
+    return;
+  }
+
+  if (state.virtualBalance + profit > Number.MAX_SAFE_INTEGER) {
+    notify("Amount is too large.");
+    return;
+  }
+
+  state.virtualBalance += profit;
+  state.totalRewards += profit;
+
+  addHistory(
+    "Hypothetical " + percent + "% simulation",
+    profit,
+    "simulation"
+  );
+
+  saveState();
+  notify("Hypothetical result added to your demo.");
 }
 
 function setGoal() {
-  const goal = readAmount("goalInput");
-  if (goal === null) return;
+  const amount = getAmount("goalInput");
+  if (amount === null) return;
 
-  state.goal = goal;
+  state.goal = amount;
 
   document.getElementById("goalInput").value = "";
 
@@ -936,7 +1299,19 @@ function setGoal() {
   notify("Savings goal updated.");
 }
 
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
 function render() {
+  if (!account || !state) return;
+
   document.getElementById("virtualBalance").textContent =
     money(state.virtualBalance);
 
@@ -953,15 +1328,15 @@ function render() {
     money(state.goal);
 
   const percent = state.goal > 0
-    ? Math.min(100, (state.realSavings / state.goal) * 100)
+    ? Math.min(100, state.realSavings / state.goal * 100)
     : 0;
 
   document.getElementById("goalProgress").style.width =
     percent + "%";
 
   document.getElementById("goalMessage").textContent =
-    money(state.realSavings) + " saved out of " + money(state.goal) +
-    " (" + percent.toFixed(1) + "%)";
+    money(state.realSavings) + " saved out of " +
+    money(state.goal) + " (" + percent.toFixed(1) + "%)";
 
   const taskButton = document.getElementById("taskButton");
   const disciplineButton = document.getElementById("disciplineButton");
@@ -971,37 +1346,37 @@ function render() {
 
   taskButton.textContent = taskButton.disabled
     ? "✓ Today's task claimed"
-    : "Complete task · Earn ₦100 virtual";
+    : "Complete task · ₦100 virtual";
 
   disciplineButton.textContent = disciplineButton.disabled
     ? "✓ Today's challenge completed"
-    : "Complete challenge · Earn ₦50 virtual";
-
-  taskButton.style.opacity = taskButton.disabled ? ".55" : "1";
-  disciplineButton.style.opacity = disciplineButton.disabled ? ".55" : "1";
+    : "Complete challenge · ₦50 virtual";
 
   const history = document.getElementById("history");
 
   if (!state.history.length) {
-    history.innerHTML =
-      '<p class="empty">No activity yet. Your transactions will appear here.</p>';
+    history.innerHTML = '<p class="muted">No activity yet.</p>';
     return;
   }
 
-  history.innerHTML = state.history.slice(0, 15).map(item => {
+  history.innerHTML = state.history.slice(0,20).map(item => {
     const amount = Number(item.amount) || 0;
-    const sign = amount > 0 ? "+" : "";
+
     const color = amount > 0 ? "var(--green)" :
-                  amount < 0 ? "var(--red)" : "var(--muted)";
+      amount < 0 ? "var(--red)" : "var(--muted)";
+
+    const sign = amount > 0 ? "+" : "";
 
     return `
       <div class="row">
-        <div class="description">
+        <div>
           <div>${escapeHTML(item.description)}</div>
           <div class="date">${escapeHTML(item.date)}</div>
-          <div class="date">${item.type === "real"
-            ? "Personal savings record"
-            : "Virtual practice record"}</div>
+          <div class="date">${
+            item.type === "real"
+              ? "Personal savings record"
+              : "Virtual activity"
+          }</div>
         </div>
         <div class="amount" style="color:${color}">
           ${sign}${money(amount)}
@@ -1011,53 +1386,49 @@ function render() {
   }).join("");
 }
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
 function exportData() {
-  const file = new Blob(
-    [JSON.stringify(state, null, 2)],
-    {type: "application/json"}
+  const blob = new Blob(
+    [JSON.stringify({
+      account:{name:account.name,email:account.email},
+      state
+    },null,2)],
+    {type:"application/json"}
   );
 
-  const url = URL.createObjectURL(file);
+  const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
 
   link.href = url;
   link.download = "scar-invest-records.json";
   link.click();
 
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+
   notify("Records exported.");
 }
 
 function resetDemo() {
-  const confirmed = confirm(
-    "Reset all virtual balances, savings records, goals and history? " +
-    "Export your records first if you want to keep a copy."
-  );
+  if (!confirm(
+    "Reset all wallet balances, savings records and transaction history?"
+  )) return;
 
-  if (!confirmed) return;
-
-  state = {...initialState, history: []};
-
-  try {
-    localStorage.removeItem(KEY);
-  } catch (e) {}
-
-  hidePanels();
+  state = freshState();
   saveState();
-  notify("Demo reset.");
+  closePanels();
+
+  notify("Demo data reset.");
 }
 
-render();
+document.getElementById("register").addEventListener(
+  "submit",registerAccount
+);
+
+document.getElementById("login").addEventListener(
+  "submit",loginAccount
+);
+
+/* Always begin at the login/register page. */
+showRegister();
 </script>
 
 </body>
